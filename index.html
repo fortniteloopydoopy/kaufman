@@ -1,125 +1,290 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Save Mr. Kaufman</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: linear-gradient(to bottom, #f4f4f4, #d9d9d9);
-      color: #111;
-      text-align: center;
+<title>SAVE MR. KAUFMAN</title>
+
+<style>
+
+body {
+    background-color: #c0c0c0;
+    font-family: Comic Sans MS, Comic Sans, cursive;
+    color: black;
+    margin: 0;
+    padding: 0;
+    background-image: url('https://www.transparenttextures.com/patterns/asfalt-dark.png');
+    overflow-x: hidden;
+}
+
+/* TOP BANNER */
+.topBanner {
+    width: 100%;
+    text-align: center;
+    background: black;
+    border-bottom: 6px ridge yellow;
+}
+
+.topBanner img {
+    width: 100%;
+    max-width: 1400px;
+    display: block;
+    margin: auto;
+    border: none;
+}
+
+marquee {
+    background-color: yellow;
+    color: red;
+    font-size: 28px;
+    font-weight: bold;
+    padding: 10px;
+    border-bottom: 4px solid black;
+}
+
+.container {
+    width: 760px;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    background-color: white;
+    border: 6px ridge gray;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 0 25px black;
+}
+
+h1 {
+    font-size: 58px;
+    color: darkgreen;
+    text-shadow: 2px 2px lime;
+    margin-bottom: 10px;
+}
+
+h2 {
+    color: red;
+    font-size: 32px;
+}
+
+.mainImage {
+    width: 300px;
+    border: 8px groove green;
+}
+
+.story {
+    margin-top: 20px;
+    text-align: left;
+    font-size: 24px;
+    background-color: #ffffcc;
+    border: 4px dashed red;
+    padding: 20px;
+}
+
+.counter {
+    margin-top: 20px;
+    font-size: 30px;
+    color: blue;
+    font-weight: bold;
+}
+
+.button {
+    display: inline-block;
+    margin-top: 25px;
+    background-color: lime;
+    color: black;
+    border: 5px outset green;
+    padding: 15px 30px;
+    font-size: 28px;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: yellow;
+}
+
+.footer {
+    margin-top: 30px;
+    font-size: 18px;
+    color: gray;
+}
+
+.blink {
+    animation: blink 1s steps(1, end) infinite;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
+
+/* JUMPSCARE */
+#jumpscare {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.92);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+#jumpscare img {
+    width: 70vw;
+    max-width: 750px;
+
+    border: 10px solid darkred;
+    box-shadow: 0 0 60px red;
+
+    /* red inverted creepy look */
+    filter:
+        invert(1)
+        sepia(1)
+        saturate(8)
+        hue-rotate(-50deg)
+        contrast(2.2)
+        brightness(1.1);
+
+    animation:
+        shake 0.09s infinite,
+        pulse 0.15s infinite alternate;
+}
+
+@keyframes shake {
+    0%   { transform: translate(2px, 1px) rotate(0deg) scale(1); }
+    25%  { transform: translate(-3px, -2px) rotate(-1deg) scale(1.02); }
+    50%  { transform: translate(4px, -2px) rotate(1deg) scale(1.04); }
+    75%  { transform: translate(-4px, 2px) rotate(-1deg) scale(1.02); }
+    100% { transform: translate(2px, -1px) rotate(0deg) scale(1); }
+}
+
+@keyframes pulse {
+    from {
+        filter:
+            invert(1)
+            sepia(1)
+            saturate(6)
+            hue-rotate(-40deg)
+            contrast(1.8);
     }
 
-    .topbar {
-      background-color: #2e7d32;
-      padding: 18px;
-      color: white;
-      font-size: 38px;
-      font-weight: bold;
-      letter-spacing: 2px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    to {
+        filter:
+            invert(1)
+            sepia(1)
+            saturate(10)
+            hue-rotate(-60deg)
+            contrast(2.5);
     }
+}
 
-    .container {
-      max-width: 900px;
-      margin: 40px auto;
-      background: white;
-      padding: 40px;
-      border-radius: 20px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-    }
-
-    img {
-      width: 260px;
-      border-radius: 16px;
-      border: 6px solid #2e7d32;
-      margin-bottom: 25px;
-    }
-
-    h1 {
-      font-size: 54px;
-      margin-bottom: 10px;
-      color: #1b5e20;
-    }
-
-    .subtitle {
-      font-size: 22px;
-      color: #444;
-      margin-bottom: 30px;
-    }
-
-    .story {
-      text-align: left;
-      font-size: 20px;
-      line-height: 1.8;
-      background: #f8f8f8;
-      padding: 25px;
-      border-radius: 14px;
-      border-left: 8px solid #2e7d32;
-    }
-
-    .highlight {
-      color: #2e7d32;
-      font-weight: bold;
-    }
-
-    .donate-btn {
-      display: inline-block;
-      margin-top: 35px;
-      background-color: #2e7d32;
-      color: white;
-      padding: 18px 36px;
-      font-size: 24px;
-      border-radius: 12px;
-      text-decoration: none;
-      transition: 0.2s ease;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-    }
-
-    .donate-btn:hover {
-      transform: scale(1.05);
-      background-color: #1b5e20;
-    }
-
-    .footer {
-      margin-top: 35px;
-      font-size: 14px;
-      color: #666;
-    }
-  </style>
+</style>
 </head>
+
 <body>
-  <div class="topbar">SAVE MR. KAUFMAN</div>
 
-  <div class="container">
-    <img src="https://www.hofstra.edu/images/academics/colleges/soeahs/tll/scied/scied_matthew_kaufman.jpg" alt="Mr Kaufman" />
+<marquee scrollamount="12">
+🚨 HELP MR. KAUFMAN RETIRE 🚨
+</marquee>
 
-    <h1>My name is Mr. Kaufman.</h1>
+<div class="container">
 
-    <div class="subtitle">
-      You may know me as the teacher who assigns homework at 11:59 PM.
-    </div>
+<h1>SAVE MR. KAUFMAN</h1>
 
-    <div class="story">
-      Hello. My name is <span class="highlight">Mr. Kaufman</span>. I teach students who forget to submit assignments and then email me at 2 AM asking for extensions.
-      <br><br>
-      Recently, my class average dropped lower than my phone battery during finals week.
-      Because of this, I have been forced to survive entirely on iced coffee and random granola bars from the teachers lounge.
-      <br><br>
-      Every day I bravely battle late work, missing Google Docs permissions, and students saying “the file got corrupted.”
-      <br><br>
-      But with your support, we can make a difference.
-      Together, we can help Mr. Kaufman finally grade assignments without emotional damage.
-    </div>
+<h2 class="blink">Father, Husband and Teacher</h2>
 
-    <a class="donate-btn" href="#">Donate Extra Credit</a>
+<img
+class="mainImage"
+src="https://www.hofstra.edu/images/academics/colleges/soeahs/tll/scied/scied_matthew_kaufman.jpg"
+>
 
-    <div class="footer">
-      This website is a parody inspired by iconic early-2000s donation pages.
-    </div>
-  </div>
+<div class="story">
+
+Hello. My name is <b>Mr. Kaufman</b>.
+
+<br><br>
+
+I am a teacher (allegedly) at Manhasset High School.
+
+<br><br>
+
+Recently, my Period 8 students have been getting on my nerves.
+(except <b>Ramses</b> he's my favorite)
+
+<br><br>
+
+My emotions are getting hurt and I want to retire.
+
+<br><br>
+
+Please support Mr. Kaufman during these trying times.
+
+</div>
+
+<div class="counter">
+YOU ARE VISITOR #
+<span id="visitorCount">000000001</span>
+</div>
+
+<a class="button" onclick="activateJumpscare()">
+DONATE NOW
+</a>
+
+
+</div>
+
+<!-- JUMPSCARE -->
+<div id="jumpscare">
+    <img src="https://www.hofstra.edu/images/academics/colleges/soeahs/tll/scied/scied_matthew_kaufman.jpg">
+</div>
+
+<script>
+
+/* VISITOR COUNTER */
+let count = localStorage.getItem('mrKaufmanVisitorCount');
+
+if (!count) {
+    count = 1;
+} else {
+    count = parseInt(count) + 1;
+}
+
+localStorage.setItem('mrKaufmanVisitorCount', count);
+
+document.getElementById('visitorCount').innerText =
+    String(count).padStart(9, '0');
+
+/* JUMPSCARE */
+function activateJumpscare() {
+
+    const jumpscare = document.getElementById('jumpscare');
+
+    jumpscare.style.display = 'flex';
+
+    let flashes = 0;
+
+    const flashInterval = setInterval(() => {
+
+        document.body.style.backgroundColor =
+            flashes % 2 === 0 ? '#220000' : '#000000';
+
+        flashes++;
+
+    }, 140);
+
+    setTimeout(() => {
+
+        jumpscare.style.display = 'none';
+
+        document.body.style.backgroundColor = '#c0c0c0';
+
+        clearInterval(flashInterval);
+
+    }, 1300);
+}
+
+</script>
+
 </body>
 </html>
